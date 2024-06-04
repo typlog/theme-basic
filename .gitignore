@@ -1,0 +1,12 @@
+.idea
+__pycache__
+bin
+build
+dist
+parts
+.DS_Store
+*.bak
+
+.env
+node_modules/
+npm-debug.log*
