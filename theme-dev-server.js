@@ -1,6 +1,7 @@
 import { resolve } from "path"
 import { readdir, readFile } from "fs/promises"
 import { loadEnv } from 'vite'
+import colors from 'picocolors'
 import fetch from "node-fetch"
 
 const reInclude = new RegExp('{%\\s+include\\s+("|\')\\./(\\S+?)\\1\\s+%}', 'g')
@@ -75,7 +76,13 @@ export const themeDevServer = (root = ".") => {
     async transformIndexHtml(html, { originalUrl }) {
       if (config.command === "serve") {
         const data = await request(originalUrl)
-        console.info(`"GET ${originalUrl} HTTP/1.1" ${data.status} ${data.duration || ''}`)
+        let message
+        if (data.status === 200) {
+          message = colors.green(`"GET ${originalUrl} HTTP/1.1"`) + ` ${data.status} ${data.duration}ms`
+        } else {
+          message = colors.red(`"GET ${originalUrl} HTTP/1.1"`) + ` ${data.status}`
+        }
+        config.logger.info(message, { timestamp: true })
         // inject /@vite/client
         return data.html.replace('<head>', `<head>\n${VITE_CLIENT}`)
       } else {
