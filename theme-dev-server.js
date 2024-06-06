@@ -1,5 +1,5 @@
 import { resolve } from "path"
-import { readdir, readFile } from "fs/promises"
+import { readdir, readFile, lstat } from "fs/promises"
 import { loadEnv } from 'vite'
 import colors from 'picocolors'
 import fetch from "node-fetch"
@@ -9,14 +9,22 @@ const VITE_CLIENT = '<script type="module" src="/@vite/client"></script>'
 
 
 export const resolveTemplates = async (folder) => {
-  const names = await readdir(folder)
-
   const _cached = {}
-  await Promise.all(names.map(async (name) => {
-    const filename = resolve(folder, name)
-    const content = await readFile(filename, { encoding: 'utf-8' })
-    _cached[name] = content
-  }))
+
+  const loadTemplates = async (baseDir, prefix = '') => {
+    const names = await readdir(baseDir)
+
+    await Promise.all(names.map(async (name) => {
+      const filepath = resolve(baseDir, name)
+      const stat = await lstat(filepath)
+      if (stat.isFile()) {
+        const content = await readFile(filepath, { encoding: 'utf-8' })
+        _cached[prefix + name] = content
+      } else if (stat.isDirectory()) {
+        await loadTemplates(filepath, name + '/')
+      }
+    }))
+  }
 
   const resolveIncludes = (content) => {
     const found = content.match(reInclude)
@@ -28,6 +36,8 @@ export const resolveTemplates = async (folder) => {
     }
     return content.trim()
   }
+
+  await loadTemplates(folder)
 
   const templates = {}
   Object.keys(_cached).forEach(name => {
