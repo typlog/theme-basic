@@ -43,6 +43,19 @@ export const parseThemeData = async (root = ".") => {
   const themeData = await readFile(resolve(root, "theme.json"), { encoding: "utf-8" })
   const theme = JSON.parse(themeData)
   const templates = await resolveTemplates(resolve(root, "templates"))
+
+  if (theme.context) {
+    const updateContext = (content) => {
+      Object.keys(theme.context).forEach(key => {
+        const reVar = new RegExp('\\{\\{\\s*' + key + '\\s*\\}\\}', 'g')
+        content = content.replace(reVar, theme.context[key])
+      })
+      return content
+    }
+    Object.keys(templates).forEach(key => {
+      templates[key] = updateContext(templates[key])
+    })
+  }
   return { ...theme, templates }
 }
 

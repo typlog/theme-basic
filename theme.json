@@ -2,6 +2,9 @@
   "name": "basic",
   "version": "1.0.0",
   "repo": "typlog/theme-basic",
+  "context": {
+    "static_url": "./src"
+  },
   "variables": {
     "color_mode": {
       "type": "enum",
