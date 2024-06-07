@@ -63,7 +63,10 @@ export const parseThemeData = async (root = ".") => {
       return content
     }
     Object.keys(templates).forEach(key => {
-      templates[key] = updateContext(templates[key])
+      const value = templates[key]
+      if (typeof value === 'string') {
+        templates[key] = updateContext(value)
+      }
     })
   }
   return { ...theme, templates }
@@ -77,7 +80,12 @@ export const themeDevServer = (root = ".") => {
 
   const request = async (url) => {
     const theme = await parseThemeData(root)
-    const body = JSON.stringify({ url, theme })
+    const data = { url, theme }
+    if (theme.context) {
+      // for debugging context
+      data.override_context = theme.context
+    }
+    const body = JSON.stringify(data)
     const resp = await fetch(endpoint, {
       method: 'POST',
       headers: {

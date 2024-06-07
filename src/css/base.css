@@ -1,4 +1,3 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -6,4 +5,29 @@
   font-family: 'Twemoji Country Flags';
   unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067, U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;
   src: url('https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1/dist/TwemojiCountryFlags.woff2') format('woff2');
+}
+
+:root {
+  --font-sys: -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;
+  --font-cjk: PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;
+  --font-heading: var(--font-sys), var(--font-cjk), sans-serif;
+  --font-text: var(--font-sys), var(--font-cjk), sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  font-family: var(--font-text);
+}
+
+.win {
+  font-family: "Twemoji Country Flags", var(--font-text);
+}
+
+html,
+.light {
+  @apply bg-slate-100 text-gray-900;
+}
+
+.dark {
+  @apply bg-slate-950 text-gray-200;
 }

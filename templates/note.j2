@@ -1,3 +1,22 @@
+{% block styles %}
+<link rel="stylesheet" href="{{ static_url }}/index.css">
+<link rel="stylesheet" href="{{ static_url }}/content.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ static_url }}/index.js" type="module"></script>
+{% endblock %}
+
 {% block body %}
-note
+{% include "./_partials/header.j2" %}
+
+<main class="main">
+  <article class="h-entry">
+    <h1 class="p-name">{{ note.title }}</h1>
+    <div class="e-content prose lg:prose-lg dark:prose-invert">{{ note.content|safe }}</div>
+    <div class="entry-meta">
+      <time class="dt-published" datetime="{{ note.published_at }}">{{ note.published_at }}</time>
+    </div>
+  </article>
+</main>
 {% endblock %}

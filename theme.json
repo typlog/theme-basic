@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "repo": "typlog/theme-basic",
   "context": {
-    "static_url": "./src"
+    "static_url": "/src",
+    "theme_nav_links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/typlog/theme-basic",
+        "blank": true
+      }
+    ]
   },
   "variables": {
     "color_mode": {
@@ -25,10 +32,20 @@
           "type": "boolean"
         }
       }
+    },
+    "copyright": {
+      "type": "string",
+      "required": false
     }
   },
   "messages": {
     "archive": "Archive",
-    "archive#zh": "归档"
+    "archive#zh": "归档",
+    "switch_auto": "Switch to auto color mode",
+    "switch_auto#zh": "切换至系统默认模式",
+    "switch_light": "Switch to light color mode",
+    "switch_light#zh": "切换至明亮模式",
+    "switch_dark": "Switch to dark color mode",
+    "switch_dark#zh": "切换至黑暗模式"
   }
 }

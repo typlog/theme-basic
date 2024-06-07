@@ -1,17 +1,29 @@
-{% block style %}
+{% block styles %}
 <link rel="stylesheet" href="{{ static_url }}/index.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ static_url }}/index.js" type="module"></script>
 {% endblock %}
 
 {% block body %}
 {% include "./_partials/header.j2" %}
 
-<main class="max-w-3xl mx-auto p-4">
-{% for note in query.filter_notes() %}
-<article>
-  <h2>{{ note.title }}</h2>
-  <div>{{ note.summary }}</div>
-</article>
-{% endfor %}
+<main class="main">
+  <div class="entries">
+    {% for note in query.filter_notes() %}
+    <article class="h-entry">
+      <h2 class="p-name">
+        <a href="{{ note.url }}">{{ note.title }}</a>
+      </h2>
+      <p class="p-summary">{{ note.summary }}</p>
+      <div class="entry-meta">
+        <time class="dt-published" datetime="{{ note.published_at }}">{{ note.published_at }}</time>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
 </main>
 
+{% include "./_partials/footer.j2" %}
 {% endblock %}

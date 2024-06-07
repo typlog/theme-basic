@@ -1,0 +1,10 @@
+.h-entry {
+  @apply bg-white dark:bg-slate-800;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.entries h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}

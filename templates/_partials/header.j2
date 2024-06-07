@@ -1,5 +1,21 @@
-<header class="flex max-w-3xl mx-auto">
-  <div class="logo">
-    <a href="/">{{ site.name }}</a>
+<script>function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}setColorMode(localStorage._theme||"auto");</script>
+<header class="header flex justify-between">
+  <div class="flex items-center">
+    <a class="mr-2" href="/">{% include "components/site_logo.j2" %}</a>
+    <button class="js-theme theme-switch flex items-center"
+      data-aria-auto="{{ translate('switch_light') }}"
+      data-aria-light="{{ translate('switch_dark') }}"
+      data-aria-dark="{{ translate('switch_auto') }}">
+      <i class="theme-icon"></i>
+    </button>
   </div>
+  <nav>
+    {% if theme_nav_links %}
+    <ul>
+      {% for item in theme_nav_links %}
+        <li><a href="{{ item.url }}"{% if item.blank %} target="_blank"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </nav>
 </header>

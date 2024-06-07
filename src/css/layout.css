@@ -1,0 +1,22 @@
+.header {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.light-logo, .dark-logo {
+  display: none;
+}
+.light .light-logo {
+  display: inline;
+}
+.dark .dark-logo {
+  display: inline;
+}
+
+.main {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+}
