@@ -1,0 +1,8 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "jinja-html": "html",
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css"
+  }
+}

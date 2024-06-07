@@ -1,3 +1,35 @@
+{% block styles %}
+<link rel="stylesheet" href="{{ _static_url }}/index.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ _static_url }}/index.js" type="module"></script>
+{% endblock %}
+
 {% block body %}
-column
+{% include "./_partials/header.j2" %}
+
+<main class="main">
+  <section class="page-head">
+    <h1>{{ column.title }}</h1>
+    {% if column.subtitle %}
+      <h2>{{ column.subtitle }}</h2>
+    {% endif %}
+  </section>
+  <div class="entries">
+    {% for note in pagination.items %}
+    <article class="h-entry">
+      <h2 class="p-name">
+        <a href="{{ note.url }}">{{ note.title }}</a>
+      </h2>
+      <p class="p-summary">{{ note.summary }}</p>
+      <div class="entry-meta">
+        <time class="dt-published" datetime="{{ note.published_at }}">{{ note.published_at }}</time>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</main>
+
+{% include "./_partials/footer.j2" %}
 {% endblock %}

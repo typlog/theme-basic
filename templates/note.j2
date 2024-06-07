@@ -1,10 +1,10 @@
 {% block styles %}
-<link rel="stylesheet" href="{{ static_url }}/index.css">
-<link rel="stylesheet" href="{{ static_url }}/content.css">
+<link rel="stylesheet" href="{{ _static_url }}/index.css">
+<link rel="stylesheet" href="{{ _static_url }}/content.css">
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ static_url }}/index.js" type="module"></script>
+<script src="{{ _static_url }}/index.js" type="module"></script>
 {% endblock %}
 
 {% block body %}
@@ -19,4 +19,6 @@
     </div>
   </article>
 </main>
+
+{% include "./_partials/footer.j2" %}
 {% endblock %}

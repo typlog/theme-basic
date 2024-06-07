@@ -54,6 +54,7 @@ export const parseThemeData = async (root = ".") => {
   const theme = JSON.parse(themeData)
   const templates = await resolveTemplates(resolve(root, "templates"))
 
+  /*
   if (theme.context) {
     const updateContext = (content) => {
       Object.keys(theme.context).forEach(key => {
@@ -69,6 +70,7 @@ export const parseThemeData = async (root = ".") => {
       }
     })
   }
+  */
   return { ...theme, templates }
 }
 

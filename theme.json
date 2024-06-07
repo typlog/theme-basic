@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "repo": "typlog/theme-basic",
   "context": {
-    "static_url": "/src",
+    "_static_url": "/src",
     "theme_nav_links": [
+      {
+        "title": "Blog",
+        "url": "/blog/"
+      },
       {
         "title": "GitHub",
         "url": "https://github.com/typlog/theme-basic",

@@ -8,3 +8,11 @@
   margin: 0;
   font-size: 1.2rem;
 }
+
+.entries a {
+  color: var(--text-color);
+}
+
+.entries a:hover {
+  color: var(--accent-9);
+}
