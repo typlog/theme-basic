@@ -43,6 +43,8 @@
     }
   },
   "messages": {
+    "none": "There is no items",
+    "none#zh": "没有内容",
     "archive": "Archive",
     "archive#zh": "归档",
     "switch_auto": "Switch to auto color mode",

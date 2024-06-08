@@ -1,3 +1,20 @@
+{% block styles %}
+<link rel="stylesheet" href="{{ _static_url }}/index.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ _static_url }}/index.js" type="module"></script>
+{% endblock %}
+
 {% block body %}
-archive
+{% include "./_partials/header.j2" %}
+
+<main class="main">
+  <section class="page-head">
+    <h1>{{ translate('archive') }}</h1>
+  </section>
+  {% include "./_partials/entries.j2" %}
+</main>
+
+{% include "./_partials/footer.j2" %}
 {% endblock %}

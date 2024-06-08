@@ -1,17 +1,6 @@
-{% block styles %}
-<link rel="stylesheet" href="{{ _static_url }}/index.css">
-{% endblock %}
-
-{% block scripts %}
-<script src="{{ _static_url }}/index.js" type="module"></script>
-{% endblock %}
-
-{% block body %}
-{% include "./_partials/header.j2" %}
-
-<main class="main">
+{% if pagination.items %}
   <div class="entries">
-    {% for note in query.paginate_notes() %}
+    {% for note in pagination.items %}
     <article class="h-entry">
       <h2 class="p-name">
         <a href="{{ note.url }}">{{ note.title }}</a>
@@ -23,7 +12,10 @@
     </article>
     {% endfor %}
   </div>
-</main>
-
-{% include "./_partials/footer.j2" %}
-{% endblock %}
+{% else %}
+  <div class="entries">
+    <article class="h-entry">
+      <h2>{{ translate('none') }}</h2>
+    </article>
+  </div>
+{% endif %}

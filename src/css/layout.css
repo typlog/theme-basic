@@ -54,3 +54,13 @@ ul.nav-links {
   margin-left: auto;
   margin-right: auto;
 }
+
+.foot-nav a {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.foot-nav a:hover {
+  text-decoration: underline;
+}
