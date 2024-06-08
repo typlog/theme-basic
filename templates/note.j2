@@ -1,5 +1,5 @@
 {% block styles %}
-<link rel="stylesheet" href="{{ _static_url }}/index.css">
+<link rel="stylesheet" href="{{ _static_url }}/content.css">
 {% endblock %}
 
 {% block scripts %}
@@ -13,7 +13,7 @@
   <article class="h-entry">
     <h1 class="p-name">{{ note.title }}</h1>
     {% include "./_partials/entry-meta.j2" %}
-    <div class="e-content prose lg:prose-lg dark:prose-invert">{{ note.content|safe }}</div>
+    <div class="e-content prose">{{ note.content|safe }}</div>
   </article>
 </main>
 
