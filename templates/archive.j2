@@ -10,10 +10,21 @@
 {% include "./_partials/header.j2" %}
 
 <main class="main">
+  {% if tag %}
+  <section class="page-head">
+    <h1>#{{ tag.title }}</h1>
+  </section>
+  {% elif author %}
+  <section class="page-head">
+    <h1>{{ author.name }}</h1>
+  </section>
+  {% else %}
   <section class="page-head">
     <h1>{{ translate('archive') }}</h1>
   </section>
+  {% endif %}
   {% include "./_partials/entries.j2" %}
+  {% include "./_partials/navigation.j2" %}
 </main>
 
 {% include "./_partials/footer.j2" %}

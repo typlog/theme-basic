@@ -1,0 +1,32 @@
+.navigation {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.navigation > div {
+  width: 100%;
+}
+
+.navigation svg {
+  width: 1em;
+  height: 1em;
+}
+
+.navigation a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.navigation a:hover {
+  color: var(--accent-10);
+}
+
+.navigation-next {
+  text-align: right;
+}
+
+.navigation-next a {
+  justify-content: end;
+}

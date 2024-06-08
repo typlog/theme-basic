@@ -1,5 +1,13 @@
-.h-entry h1 {
+.note-page h1 {
   margin: 0;
+}
+
+.note-page .entry-meta {
+  margin-top: 1rem;
+}
+
+.note-page .entry-meta a:hover {
+  color: var(--accent-9);
 }
 
 .e-content {
@@ -36,12 +44,4 @@
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   @apply max-sm:block;
-}
-
-.entry-meta {
-  margin-top: 1rem;
-}
-
-.entry-meta a:hover {
-  color: var(--accent-9);
 }

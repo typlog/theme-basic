@@ -1,6 +1,5 @@
 {% block styles %}
 <link rel="stylesheet" href="{{ _static_url }}/index.css">
-<link rel="stylesheet" href="{{ _static_url }}/content.css">
 {% endblock %}
 
 {% block scripts %}
@@ -10,7 +9,7 @@
 {% block body %}
 {% include "./_partials/header.j2" %}
 
-<main class="main">
+<main class="main note-page">
   <article class="h-entry">
     <h1 class="p-name">{{ note.title }}</h1>
     {% include "./_partials/entry-meta.j2" %}

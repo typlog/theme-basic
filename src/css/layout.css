@@ -11,6 +11,11 @@ a.logo {
   font-weight: 700;
 }
 
+.logo img {
+  height: 32px;
+  vertical-align: middle;
+}
+
 .light-logo, .dark-logo {
   display: none;
 }

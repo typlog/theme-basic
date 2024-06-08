@@ -115,8 +115,12 @@ export const themeDevServer = (root = ".") => {
           message = colors.red(`"GET ${originalUrl} HTTP/1.1"`) + ` ${data.status}`
         }
         config.logger.info(message, { timestamp: true })
-        // inject /@vite/client
-        return data.html.replace('<head>', `<head>\n${VITE_CLIENT}`)
+        if (data.status === 200) {
+          // inject /@vite/client
+          return data.html.replace('<head>', `<head>\n${VITE_CLIENT}`)
+        } else {
+          return `<html><head>${VITE_CLIENT}</head><body><pre>${data.status}: ${data.message}</pre></body></html>\n`
+        }
       } else {
         return html
       }
