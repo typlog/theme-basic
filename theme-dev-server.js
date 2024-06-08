@@ -1,17 +1,17 @@
-import { resolve } from "path"
+import { resolve, dirname } from "path"
 import { readdir, readFile, lstat } from "fs/promises"
 import { loadEnv } from 'vite'
 import colors from 'picocolors'
 import fetch from "node-fetch"
 
-const reInclude = new RegExp('{%\\s+include\\s+("|\')\\./(\\S+?)\\1\\s+%}', 'g')
+const reInclude = new RegExp('{%\\s+include\\s+("|\')(\\./\\S+?)\\1\\s+%}', 'g')
 const VITE_CLIENT = '<script type="module" src="/@vite/client"></script>'
 
 
 export const resolveTemplates = async (folder) => {
   const _cached = {}
 
-  const loadTemplates = async (baseDir, prefix = '') => {
+  const loadTemplates = async (baseDir) => {
     const names = await readdir(baseDir)
 
     await Promise.all(names.map(async (name) => {
@@ -19,19 +19,20 @@ export const resolveTemplates = async (folder) => {
       const stat = await lstat(filepath)
       if (stat.isFile()) {
         const content = await readFile(filepath, { encoding: 'utf-8' })
-        _cached[prefix + name] = content
+        _cached[filepath] = content
       } else if (stat.isDirectory()) {
-        await loadTemplates(filepath, name + '/')
+        await loadTemplates(filepath)
       }
     }))
   }
 
-  const resolveIncludes = (content) => {
+  const resolveIncludes = (filepath) => {
+    let content = _cached[filepath]
     const found = content.match(reInclude)
     if (found) {
       found.forEach(str => {
-        const name = str.replace(/^{%\s+include\s+("|')\.\//, '').replace(/("|')\s+%}$/, '')
-        content = content.replace(str, _cached[name])
+        const name = str.replace(/^{%\s+include\s+("|')/, '').replace(/("|')\s+%}$/, '')
+        content = content.replace(str, resolveIncludes(resolve(dirname(filepath), name)))
       })
     }
     return content.trim()
@@ -40,9 +41,10 @@ export const resolveTemplates = async (folder) => {
   await loadTemplates(folder)
 
   const templates = {}
-  Object.keys(_cached).forEach(name => {
+  Object.keys(_cached).forEach(filepath => {
+    const name = filepath.replace(resolve(folder) + '/', '')
     if (/\.j2$/.test(name) && !/^[_.]/.test(name)) {
-      templates[name] = resolveIncludes(_cached[name])
+      templates[name] = resolveIncludes(filepath)
     }
   })
   return templates
@@ -54,7 +56,6 @@ export const parseThemeData = async (root = ".") => {
   const theme = JSON.parse(themeData)
   const templates = await resolveTemplates(resolve(root, "templates"))
 
-  /*
   if (theme.context) {
     const updateContext = (content) => {
       Object.keys(theme.context).forEach(key => {
@@ -64,13 +65,11 @@ export const parseThemeData = async (root = ".") => {
       return content
     }
     Object.keys(templates).forEach(key => {
-      const value = templates[key]
-      if (typeof value === 'string') {
-        templates[key] = updateContext(value)
+      if (/^_/.test(key)) {
+        templates[key] = updateContext(templates[key])
       }
     })
   }
-  */
   return { ...theme, templates }
 }
 

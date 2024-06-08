@@ -20,3 +20,19 @@
 .entries a:hover {
   color: var(--accent-9);
 }
+
+.entry-meta {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.875rem;
+  @apply max-sm:flex-col max-sm:gap-2;
+}
+
+.entry-meta svg {
+  width: 1em;
+  height: 1em;
+}
+
+.entry-meta a {
+  color: var(--text-color);
+}

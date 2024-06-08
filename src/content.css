@@ -6,8 +6,13 @@
   margin-top: 2rem;
 }
 
+.e-content a:hover {
+  color: var(--accent-9);
+}
+
 .e-content img {
   max-width: 100%;
+  vertical-align: middle;
 }
 
 .e-content figure {
@@ -23,9 +28,20 @@
 .e-content .gallery figure {
   margin-top: 0;
   margin-bottom: 0;
+  @apply max-sm:mb-2;
 }
 
 .e-content .gallery-column {
   display: flex;
   gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  @apply max-sm:block;
+}
+
+.entry-meta {
+  margin-top: 1rem;
+}
+
+.entry-meta a:hover {
+  color: var(--accent-9);
 }

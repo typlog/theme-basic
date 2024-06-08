@@ -17,9 +17,7 @@
         <a href="{{ note.url }}">{{ note.title }}</a>
       </h2>
       <p class="p-summary">{{ note.summary }}</p>
-      <div class="entry-meta">
-        <time class="dt-published" datetime="{{ note.published_at }}">{{ note.published_at }}</time>
-      </div>
+      {% include "./_partials/entry-meta.j2" %}
     </article>
     {% endfor %}
   </div>
