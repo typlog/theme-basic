@@ -1,8 +1,49 @@
 button.theme-switch {
+  position: relative;
   background-color: transparent;
   padding: 0;
   border: none;
   cursor: pointer;
+}
+
+.theme-switch:before {
+  display: none;
+  content: "";
+  position: absolute;
+  top: auto;
+  right: 50%;
+  bottom: -7px;
+  margin-right: -5px;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom-color: var(--gray-12);
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.theme-switch:after {
+  display: none;
+  content: attr(aria-label);
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  padding: 0 10px;
+  border-radius: 3px;
+  background-color: var(--gray-12);
+  color: var(--gray-1);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: pre;
+  z-index: 10000;
+  margin-top: 5px;
+  line-height: 26px;
+  transform: translateX(50%);
+}
+
+.theme-switch:hover:before,
+.theme-switch:hover:after {
+  display: block;
 }
 
 .theme-icon {

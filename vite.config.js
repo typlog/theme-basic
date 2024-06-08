@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     minify: true,
     cssCodeSplit: true,
+    outDir: 'static',
     lib: {
       entry: [
         'src/index.js',
