@@ -5,3 +5,27 @@
 .e-content {
   margin-top: 2rem;
 }
+
+.e-content img {
+  max-width: 100%;
+}
+
+.e-content figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.e-content .gallery {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.e-content .gallery figure {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.e-content .gallery-column {
+  display: flex;
+  gap: 0.5rem;
+}

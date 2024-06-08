@@ -17,6 +17,7 @@ function getModeIndex () {
   return COLOR_MODES.indexOf(document.documentElement.getAttribute('data-color-mode') || 'auto')
 }
 
+/**  @param {string} mode */
 function updateLabel (mode) {
   const label = el.getAttribute('data-aria-' + mode)
   el.setAttribute('aria-label', label)

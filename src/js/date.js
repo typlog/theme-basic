@@ -1,6 +1,8 @@
+/** @type {NodeListOf<HTMLTimeElement>} */
 const elements = document.querySelectorAll('time.dt-published')
 const lang = document.documentElement.lang
 
+/** @param {HTMLTimeElement} element */
 function showPrettyDate (element) {
   const datetime = element.getAttribute('datetime')
   const d = new Date(datetime)

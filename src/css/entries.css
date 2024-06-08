@@ -4,6 +4,10 @@
   border-radius: 6px;
 }
 
+.entries .h-entry {
+  margin-bottom: 1rem;
+}
+
 .entries h2 {
   margin: 0;
   font-size: 1.2rem;
