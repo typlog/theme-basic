@@ -1,5 +1,7 @@
 @import "./index.css";
 @import "./css/components/prose.css";
+@import "./css/components/table.css";
+@import "./css/components/admonition.css";
 
 .note-page h1 {
   margin: 0;
