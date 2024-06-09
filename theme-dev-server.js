@@ -1,6 +1,5 @@
 import { resolve, dirname } from "path"
 import { readdir, readFile, lstat } from "fs/promises"
-import { loadEnv } from 'vite'
 import colors from 'picocolors'
 import fetch from "node-fetch"
 
@@ -75,11 +74,11 @@ export const parseThemeData = async (root = ".") => {
 
 
 export const themeDevServer = (root = ".") => {
-  const env = loadEnv('development', root, "TYPLOG")
-  // TODO: add default theme development api
-  const endpoint = env.TYPLOG_THEME_DEVELOP_API || ""
+  let config
 
   const request = async (url) => {
+    const endpoint = config.env.VITE_THEME_DEVELOP_API || ""
+
     const theme = await parseThemeData(root)
     const data = { url, theme }
     if (theme.context) {
@@ -97,7 +96,6 @@ export const themeDevServer = (root = ".") => {
     return resp.json()
   }
 
-  let config
   return {
     name: 'typlog-theme-dev-server',
 
