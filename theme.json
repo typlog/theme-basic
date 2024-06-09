@@ -56,6 +56,8 @@
     "switch_light": "Switch to light color mode",
     "switch_light#zh": "切换至明亮模式",
     "switch_dark": "Switch to dark color mode",
-    "switch_dark#zh": "切换至黑暗模式"
+    "switch_dark#zh": "切换至黑暗模式",
+    "copy": "Copy",
+    "copy#zh": "复制"
   }
 }

@@ -1,4 +1,5 @@
 .block-code {
+  position: relative;
   color: var(--tw-prose-pre-code);
   background-color: var(--tw-prose-pre-bg);
   margin-top: 2rem;
@@ -71,4 +72,54 @@
   text-align: right;
   opacity: .6;
   box-sizing: border-box;
+}
+
+clipboard-copy {
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0.325rem;
+  border: 1px solid #747686;
+  background-color: #40424b;
+}
+
+clipboard-copy svg {
+  width: 0.825rem;
+  height: 0.825rem;
+  fill: var(--tw-prose-pre-code);
+}
+
+clipboard-copy svg + svg {
+  display: none;
+}
+
+clipboard-copy.copied svg:first-child {
+  display: none;
+}
+
+clipboard-copy.copied svg + svg {
+  display: inline-block;
+  fill: #98C379;
+}
+
+.block-code clipboard-copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  opacity: 0.2;
+  transition: opacity 0.2s ease;
+}
+
+.block-code.has-caption clipboard-copy {
+  top: 2.5rem;
+}
+
+.block-code:hover clipboard-copy {
+  opacity: 0.6;
+}
+
+.block-code clipboard-copy.copied,
+.block-code clipboard-copy:hover {
+  opacity: 1;
 }
