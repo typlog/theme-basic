@@ -24,13 +24,14 @@
     },
     "nav_links": {
       "type": "object[]",
-      "required": false,
       "properties": {
         "title": {
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         "url": {
-          "type": "url"
+          "type": "url",
+          "required": true
         },
         "blank": {
           "type": "boolean"
@@ -38,8 +39,7 @@
       }
     },
     "copyright": {
-      "type": "string",
-      "required": false
+      "type": "string"
     }
   },
   "messages": {
