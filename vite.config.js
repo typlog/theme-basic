@@ -1,5 +1,5 @@
 import { defineConfig } from "vite"
-import { themeDevServer } from "./theme-dev-server"
+import { themeDevServer } from "@typlog/theme-dev-plugin/vite"
 
 export default defineConfig({
   plugins: [themeDevServer()],

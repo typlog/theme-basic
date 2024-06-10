@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "node-fetch": "^3.3.2",
+    "@typlog/theme-dev-plugin": "*",
     "tailwindcss": "^3.4.4",
     "vite": "^5.2.0"
   },
