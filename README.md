@@ -1,2 +1,3 @@
-# theme-basic
-A basic Typlog theme
+# Basic theme template
+
+A basic template for Typlog theme development.
