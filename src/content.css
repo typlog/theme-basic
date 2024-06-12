@@ -1,7 +1,6 @@
 @import "./index.css";
 @import "./css/components/prose.css";
 @import "./css/components/table.css";
-@import "./css/components/gallery.css";
 @import "./css/components/admonition.css";
 @import "./css/components/highlight.css";
 
@@ -23,4 +22,19 @@
 
 .e-content a:hover {
   color: var(--accent-9);
+}
+
+.e-content img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.e-content .gallery {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.e-content .photo figure {
+  margin-left: 0;
+  margin-right: 0;
 }
