@@ -1,6 +1,6 @@
 {
   "name": "basic",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "repo": "typlog/theme-basic",
   "context": {
     "_static_url": "/src",
