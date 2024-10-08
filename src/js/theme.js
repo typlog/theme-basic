@@ -9,7 +9,7 @@ function rotateColorMode () {
   }
   const mode = COLOR_MODES[index]
   setColorMode(mode)
-  localStorage['_theme'] = mode
+  sessionStorage._theme = mode
   updateLabel(mode)
 }
 
