@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -11,7 +12,7 @@
   "devDependencies": {
     "@typlog/theme-dev-plugin": "*",
     "tailwindcss": "^3.4.4",
-    "vite": "^5.2.0"
+    "vite": "^6.0.0"
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
