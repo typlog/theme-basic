@@ -7,11 +7,7 @@
   src: url('https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1/dist/TwemojiCountryFlags.woff2') format('woff2');
 }
 
-html,
-.light {
-  @apply bg-slate-100;
-}
-
-.dark {
-  @apply bg-slate-950;
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }

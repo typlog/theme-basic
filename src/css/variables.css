@@ -29,11 +29,17 @@
   --accent-12: var(--blue-12);
 
   --text-color: var(--gray-12);
+  --background-color: #f1f5f9;
+}
+
+.dark {
+  --background-color: #020617;
 }
 
 body {
   font-family: var(--font-text);
   color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 .win {
