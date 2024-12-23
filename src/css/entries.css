@@ -1,5 +1,6 @@
-.h-entry {
-  @apply bg-white dark:bg-slate-800;
+.h-entry,
+.entry-block {
+  @apply bg-white dark:bg-slate-900;
   padding: 1.5rem;
   border-radius: 6px;
 }

@@ -18,6 +18,9 @@
     {% include "./_partials/entry-meta.j2" %}
     <div class="e-content prose">{{ note.content|safe }}</div>
   </article>
+  <div class="mt-4 entry-block">
+    {% include "components/web-comment.j2" %}
+  </div>
 </main>
 
 {% include "./_partials/footer.j2" %}
