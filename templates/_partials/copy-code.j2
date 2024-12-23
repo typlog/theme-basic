@@ -1,7 +1,7 @@
 {% if 'class="block-code"' in note.content %}
 <script type="module">
 {% filter compress %}
-import "https://esm.sh/@github/clipboard-copy-element";
+import "@github/clipboard-copy-element";
 const blocks = document.querySelectorAll('.block-code');
 blocks.forEach(el => {
   const btn = document.createElement('clipboard-copy');
